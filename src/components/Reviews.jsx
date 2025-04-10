@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import GoogleLogo from '../assets/google_logo.svg';
+import Googleg from '../assets/google-g.png';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -78,6 +80,13 @@ const reviews = [
 		image: 'https://via.placeholder.com/40',
 	},
 	{
+		name: 'Sarah Lee',
+		date: 'November 2023',
+		rating: 5,
+		comment: 'Very reliable and prompt service, highly recommended!',
+		image: 'https://via.placeholder.com/40',
+	},
+	{
 		name: 'George Hall',
 		date: 'June 2023',
 		rating: 5,
@@ -88,26 +97,33 @@ const reviews = [
 
 const Reviews = () => {
 	return (
-		<section className='bg-white py-12 px-4 md:px-6'>
+		<section className='py-12 px-4 md:px-6'>
 			<div className='max-w-6xl mx-auto relative'>
 				<h2 className='text-3xl font-bold text-center mb-10'>
 					What Our Customers Say
 				</h2>
 
 				{/* Google Icon & Review Button Section */}
-				<div className='flex justify-between items-center mb-8'>
+				<div className='flex flex-col bg-[#f6f6f8] rounded-inherit md:flex-row justify-between items-center mb-8 p-8'>
 					{/* Google Icon + Stars */}
-					<div className='flex items-center gap-4'>
-						<div className='bg-red-500 text-white font-bold px-3 py-2 rounded text-lg'>
-							G
+					<div className='flex flex-col items-center'>
+						<div className='flex'>
+							<img
+								src={GoogleLogo}
+								alt='google-logo'
+								className='w-18'
+							/>
+							<p className='font-bold pl-2'>Reviews</p>
 						</div>
 						<div className='flex gap-1'>
+							<span className='font-bold'>5.0</span>
 							{[...Array(5)].map((_, i) => (
 								<Star
 									key={i}
 									className='text-yellow-400 w-5 h-5 fill-yellow-400'
 								/>
-							))}
+							))}{' '}
+							{/* <span>(385)</span> */}
 						</div>
 					</div>
 
@@ -136,17 +152,23 @@ const Reviews = () => {
 						}}>
 						{reviews.slice(0, 4).map((review, index) => (
 							<SwiperSlide key={index}>
-								<div className='bg-gray-50 border rounded-xl p-4 shadow-sm hover:shadow-md transition h-full flex flex-col'>
+								<div className='bg-[#f6f6f8] rounded-xl p-4 shadow-sm hover:shadow-md transition h-full flex flex-col'>
 									{/* Div 1: Image, Name, Date */}
 									<div className='flex items-center gap-4 mb-3'>
 										<div
-											className='w-10 h-10 rounded-full flex items-center justify-center text-white font-bold'
+											className='relative w-10 h-10 rounded-full flex items-center justify-center text-white font-bold'
 											style={{
 												backgroundColor: `#${Math.floor(
 													Math.random() * 16777215,
 												).toString(16)}`,
 											}}>
 											{review.name[0].toUpperCase()}
+
+											<img
+												src={Googleg}
+												alt='google'
+												className='absolute bottom-0 right-0 w-6 h-6 border-2 border-white rounded-full'
+											/>
 										</div>
 										<div>
 											<p className='font-semibold text-gray-800'>

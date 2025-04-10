@@ -4,11 +4,11 @@ import Landlord from '../assets//form-icon-2.png';
 
 const Showcase = () => {
 	return (
-		<div className='flex flex-col justify-center md:container md:mx-auto items-center py-12'>
-			<div className='text-4xl font-bold text-[#000a70] mt-[90px] mb-[10px]'>
+		<div className='bg-[#f6f6f8]flex flex-col justify-center md:container md:mx-auto items-center  py-12'>
+			<div className='text-4xl font-bold text-[#000a70] text-center mt-[90px] mb-[10px]'>
 				"I am a:"
 			</div>
-			<p className='text-[#696688] mx-6 pb-4'>
+			<p className='text-[#696688] mx-6 pb-4 text-center'>
 				All plans include unlimited repairs with no limit on the value of each
 				repair.
 			</p>

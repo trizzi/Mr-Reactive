@@ -1,13 +1,11 @@
 // tailwind.config.js
 export default {
-	content: [
-		'./index.html',
-		'./src/**/*.{js,ts,jsx,tsx}', // Tailwind will scan your source files
-	],
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			fontFamily: {
 				'sans-custom': [
+					'Poppins',
 					'system-ui',
 					'-apple-system',
 					'"Segoe UI"',
@@ -16,7 +14,6 @@ export default {
 					'"Noto Sans"',
 					'"Liberation Sans"',
 					'Arial',
-					'Poppins',
 					'sans-serif',
 					'"Apple Color Emoji"',
 					'"Segoe UI Emoji"',
