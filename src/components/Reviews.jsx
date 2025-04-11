@@ -141,6 +141,7 @@ const Reviews = () => {
 									className='text-yellow-400 w-5 h-5 fill-yellow-400'
 								/>
 							))}
+							<p className='text-gray-400'>(385)</p>
 						</div>
 					</div>
 
@@ -192,11 +193,20 @@ const Reviews = () => {
 												<p className='font-semibold text-gray-800 hover:underline transition'>
 													{review.name}
 												</p>
-												<img
-													src={Verified}
-													alt='verified'
-													className='w-5 h-5'
-												/>
+												{/* Image wrapper with hover effect */}
+												<div className='relative group'>
+													{/* Badge appears on hover */}
+													{/* <button className='absolute bottom-2 right-10 bg-black text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity'>
+														Verified Customer
+													</button> */}
+
+													{/* Verified icon */}
+													<img
+														src={Verified}
+														alt='verified'
+														className='w-5 h-5'
+													/>
+												</div>
 											</div>
 											<p className='text-xs text-gray-500'>{review.date}</p>
 										</div>
@@ -223,7 +233,7 @@ const Reviews = () => {
 												{review.comment.split(' ').slice(0, 6).join(' ')}...
 												<button
 													onClick={() => setSelectedReview(review)}
-													className='text-blue-600 ml-2 underline text-xs'>
+													className='text-blue-600 ml-2 hover:underline text-xs'>
 													Read more
 												</button>
 											</>

@@ -121,7 +121,7 @@ const WhatsAppChat = () => {
 								href='https://wa.me/447123456789'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-semibold'>
+								className='bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold'>
 								<FontAwesomeIcon
 									icon={faWhatsapp}
 									className='text-white text-lg'

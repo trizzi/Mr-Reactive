@@ -57,13 +57,13 @@ const Navbar = () => {
 							<li
 								key={item.name}
 								className='relative group cursor-pointer'>
-								<div className='flex items-center gap-1 hover:text-blue-600'>
+								<div className='flex items-center gap-1 hover:text-[#1f8ceb]'>
 									{item.name}
 									{item.hasSubmenu}
 								</div>
 
 								{item.hasSubmenu && (
-									<ul className='absolute top-8 left-0 bg-white shadow-md rounded-lg py-2 px-4 hidden group-hover:block'>
+									<ul className='absolute top-8 left-0 bg-white shadow-md text-black rounded-lg py-2 px-4 hidden group-hover:block'>
 										{emergencySubLinks.map((sub) => (
 											<li
 												key={sub}
@@ -82,7 +82,7 @@ const Navbar = () => {
 						<div className='hidden lg:block px-4 py-2 rounded-xl text-blue-500 font-bold'>
 							Login
 						</div>
-						<button className='hidden lg:block px-4 py-2 bg-[#1f8ceb] text-white uppercase rounded-full text-sm hover:bg-blue-700'>
+						<button className='hidden lg:block px-4 py-2 bg-[#1f8ceb] text-white uppercase rounded-full text-sm hover:bg-white hover:text-[#1f8ceb] hover:border-2'>
 							Get a quote
 						</button>
 						<button
