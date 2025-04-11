@@ -23,7 +23,7 @@ const OwnerReply = () => (
 			</div>
 		</div>
 		<div className='ml-4'>
-			<p className='text-sm text-gray-700 mt-4 pt-4'>
+			<p className='text-sm text-gray-700 pt-2'>
 				Thank you for your feedback! We're happy to serve you.
 			</p>
 		</div>

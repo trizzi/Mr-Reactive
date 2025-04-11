@@ -6,13 +6,53 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 const WhatsAppChat = () => {
 	const [showWidget, setShowWidget] = useState(false);
 	const [showChat, setShowChat] = useState(false);
+	const [currentTime, setCurrentTime] = useState('');
+	const [showMessage, setShowMessage] = useState(false);
+	const [dotIndex, setDotIndex] = useState(0);
 
+	// Show widget after 3s
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowWidget(true);
 		}, 3000);
 		return () => clearTimeout(timer);
 	}, []);
+
+	// Set time on mount and every minute
+	useEffect(() => {
+		const updateTime = () => {
+			const now = new Date();
+			const time = now.toLocaleTimeString([], {
+				hour: '2-digit',
+				minute: '2-digit',
+			});
+			setCurrentTime(time);
+		};
+
+		updateTime();
+		const interval = setInterval(updateTime, 60000);
+		return () => clearInterval(interval);
+	}, []);
+
+	// Message delay and dot animation
+	useEffect(() => {
+		if (showChat) {
+			const messageTimer = setTimeout(() => setShowMessage(true), 3000);
+			return () => clearTimeout(messageTimer);
+		} else {
+			setShowMessage(false); // reset message if chat closed
+		}
+	}, [showChat]);
+
+	// Typing dots animation
+	useEffect(() => {
+		if (!showMessage && showChat) {
+			const dotInterval = setInterval(() => {
+				setDotIndex((prev) => (prev + 1) % 3);
+			}, 500);
+			return () => clearInterval(dotInterval);
+		}
+	}, [showMessage, showChat]);
 
 	return (
 		<div className='fixed bottom-6 right-6 z-50 flex flex-col items-end'>
@@ -28,7 +68,6 @@ const WhatsAppChat = () => {
 									alt='Liam Addison'
 									className='w-10 h-10 rounded-full'
 								/>
-
 								<span className='absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full' />
 							</div>
 							<div className='text-sm'>
@@ -49,11 +88,24 @@ const WhatsAppChat = () => {
 					<div
 						className='bg-cover bg-center'
 						style={{ backgroundImage: `url(${WaBg})` }}>
-						<div className=' text-xs text-center py-1'>20:55</div>
-						<div className=' px-4 py-3 text-sm'>
-							<div className='rounded-lg bg-[#f0f0f0] p-3 w-fit max-w-[85%]'>
-								👋 Hi there! We are online and ready to help!
-							</div>
+						<div className='text-xs text-center py-1'>{currentTime}</div>
+						<div className='px-4 py-3 text-sm'>
+							{showMessage ? (
+								<div className='rounded-lg bg-[#f0f0f0] p-3 w-fit max-w-[85%]'>
+									Hi there! 👋 <br /> We are online and ready to help!
+								</div>
+							) : (
+								<div className='rounded-lg bg-[#f0f0f0] p-3 w-fit max-w-[85%] flex items-center gap-1'>
+									{[0, 1, 2].map((i) => (
+										<span
+											key={i}
+											className={`w-2 h-2 rounded-full ${
+												dotIndex === i ? 'bg-gray-500' : 'bg-gray-300'
+											} transition-all duration-300`}
+										/>
+									))}
+								</div>
+							)}
 						</div>
 
 						{/* Start Chat Button */}
