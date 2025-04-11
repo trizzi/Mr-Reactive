@@ -9,6 +9,7 @@ const WhatsAppChat = () => {
 	const [currentTime, setCurrentTime] = useState('');
 	const [showMessage, setShowMessage] = useState(false);
 	const [dotIndex, setDotIndex] = useState(0);
+	const [animationStopped, setAnimationStopped] = useState(false);
 
 	// Show widget after 3s
 	useEffect(() => {
@@ -53,6 +54,12 @@ const WhatsAppChat = () => {
 			return () => clearInterval(dotInterval);
 		}
 	}, [showMessage, showChat]);
+
+	// Floating WhatsApp icon click
+	const handleWidgetClick = () => {
+		setShowChat((prev) => !prev);
+		setAnimationStopped(true); // Stop the animation after clicking
+	};
 
 	return (
 		<div className='fixed bottom-6 right-6 z-50 flex flex-col items-end'>
@@ -129,8 +136,12 @@ const WhatsAppChat = () => {
 			{/* Floating WhatsApp Icon */}
 			{showWidget && (
 				<button
-					onClick={() => setShowChat((prev) => !prev)}
-					className='relative bg-white hover:bg-green-700 text-green-600 p-2 rounded-full shadow-lg transition-all duration-300'>
+					onClick={handleWidgetClick}
+					className={`relative bg-white hover:bg-green-700 text-green-600 p-2 rounded-full shadow-lg transition-all duration-300 ${
+						!animationStopped
+							? 'animate-circle-border' // Add the animation if not stopped
+							: ''
+					}`}>
 					<FontAwesomeIcon
 						icon={faWhatsapp}
 						className='text-green-600 text-xl'

@@ -11,3 +11,46 @@
 .swiper-pagination-bullet-active {
 	background: #197bff !important;
 }
+
+/* Keyframe animation for the circular border */
+@keyframes circle-border {
+	0% {
+		border: 2px solid transparent;
+	}
+	33% {
+		border: 2px solid #25d366; /* Green color */
+	}
+	66% {
+		border: 2px solid #25d366;
+	}
+	100% {
+		border: 2px solid transparent;
+	}
+}
+
+/* Applying the animation to the button */
+.animate-circle-border {
+	position: relative;
+	animation: circle-border 2s infinite;
+}
+
+.animate-circle-border:before,
+.animate-circle-border:after {
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	border-radius: 50%;
+	border: 2px solid transparent;
+}
+
+.animate-circle-border:before {
+	animation: circle-border 2s infinite;
+}
+
+.animate-circle-border:after {
+	animation: circle-border 2s infinite;
+	animation-delay: 0.5s;
+}
