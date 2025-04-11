@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { X } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/logo-color.png';
+import Menu from '../assets/menu-btn.svg';
+import MenuClose from '../assets/menu-close.svg';
 
 const Navbar = () => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,14 +33,16 @@ const Navbar = () => {
 				<div className='max-w-7xl mx-auto flex items-center justify-between lg:justify-around'>
 					{/* Phone icon (mobile) */}
 					<div className='lg:hidden'>
-						<Phone className='text-blue-600' />
+						{/* <Phone className='text-blue-600' /> */}
+						<FontAwesomeIcon
+							icon={faPhone}
+							className='text-blue-600 '
+						/>
 					</div>
 
 					{/* Logo */}
 					<div>
-						<Link
-							to='#'
-							className='pl-2'>
+						<Link to='#'>
 							<img
 								className='w-44 p-2'
 								src={Logo}
@@ -73,16 +79,20 @@ const Navbar = () => {
 
 					{/* Right buttons + hamburger */}
 					<div className='flex items-center gap-4'>
-						<div className='hidden lg:block px-4 py-2 rounded-xl text-blue-500 font-semibold'>
+						<div className='hidden lg:block px-4 py-2 rounded-xl text-blue-500 font-bold'>
 							Login
 						</div>
-						<button className='hidden lg:block px-4 py-2 bg-blue-600 text-white rounded-xl text-sm hover:bg-blue-700'>
+						<button className='hidden lg:block px-4 py-2 bg-[#1f8ceb] text-white uppercase rounded-full text-sm hover:bg-blue-700'>
 							Get a quote
 						</button>
 						<button
 							className='lg:hidden'
 							onClick={() => setSidebarOpen(true)}>
-							<Menu className='w-6 h-6' />
+							<img
+								src={Menu}
+								alt='Menu'
+								className='w-6 h-6'
+							/>
 						</button>
 					</div>
 				</div>
@@ -90,8 +100,8 @@ const Navbar = () => {
 
 			{/* Sidebar (mobile) */}
 			{sidebarOpen && (
-				<div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50'>
-					<div className='fixed top-0 left-0 w-3/4 max-w-sm h-full bg-white shadow-lg p-6 flex flex-col'>
+				<div className='fixed top-0 left-0 w-full h-full bg-black/70 backdrop-opacity-50 z-50'>
+					<div className='fixed top-0 right-0 w-3/4 max-w-sm h-full bg-white shadow-xl p-6 flex flex-col'>
 						<div className='flex items-center justify-between mb-6'>
 							<div>
 								<Link
@@ -105,13 +115,19 @@ const Navbar = () => {
 								</Link>
 							</div>
 							<button onClick={() => setSidebarOpen(false)}>
-								<X className='w-6 h-6 text-gray-700' />
+								<img
+									src={MenuClose}
+									alt='Menu-Close'
+									className='w-6 h-6'
+								/>
 							</button>
 						</div>
 
-						<ul className='flex flex-col gap-4 text-gray-600 font-medium'>
+						<ul className='flex flex-col gap-4 text-blue-400  font-medium'>
 							{mainLinks.map((item) => (
-								<li key={item.name}>
+								<li
+									key={item.name}
+									className='border-b-2 border-gray-100 py-2'>
 									{item.hasSubmenu ? (
 										<div>
 											<div
@@ -126,7 +142,7 @@ const Navbar = () => {
 													{emergencySubLinks.map((sub) => (
 														<li
 															key={sub}
-															className='hover:text-blue-600'>
+															className='hover:text-blue-600 '>
 															{sub}
 														</li>
 													))}
@@ -142,10 +158,11 @@ const Navbar = () => {
 							))}
 						</ul>
 						<div className='mt-8 flex flex-col gap-3'>
-							<button className='w-full px-4 py-2 border-blue-600 text-blue-600  rounded-xl text-sm hover:bg-gray-200'>
+							<button className='w-full px-4 py-2 bg-white border-2 border-[#1f8ceb] text-blue-600 rounded-full text-sm hover:bg-blue-50'>
 								Login
 							</button>
-							<button className='w-full px-4 py-2 bg-sky-400 text-white rounded-xl text-sm hover:bg-blue-700'>
+
+							<button className='w-full px-4 py-2 bg-[#1f8ceb] text-white rounded-full text-sm hover:bg-blue-700'>
 								GET A QUOTE
 							</button>
 						</div>
