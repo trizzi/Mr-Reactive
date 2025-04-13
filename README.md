@@ -16,8 +16,10 @@ A modern, responsive frontend application built with **React**, **Vite**, **Tail
 
 ## 📸 Preview
 
-<img width="405" alt="Screenshot 2025-04-13 at 18 41 01" src="https://github.com/user-attachments/assets/03e1792c-e867-4850-9ca0-c4b6d799e6f2" />
- 
+<img width="1680" alt="Screenshot 2025-04-13 at 18 40 33" src="https://github.com/user-attachments/assets/38682b54-72a4-4c21-bbe7-dfee6dc1f72c" />
+<img width="405" alt="Screenshot 2025-04-13 at 18 41 01" src="https://github.com/user-attachments/assets/baddcdb2-f949-4136-b960-47d783054102" />
+<img width="405" alt="Screenshot 2025-04-13 at 18 41 14" src="https://github.com/user-attachments/assets/6896cc21-cf13-4512-b301-e3993f9e0b36" />
+<img width="405" alt="Screenshot 2025-04-13 at 18 41 33" src="https://github.com/user-attachments/assets/e3cf2420-c764-4ccc-a6ba-ca7248bced35" />
 
 
 ## 🔧 Tech Stack
