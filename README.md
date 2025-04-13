@@ -1,12 +1,40 @@
-# React + Vite
+# 🏡 HomeGuard - Customer Reviews Carousel & Responsive Navbar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive frontend application built with **React**, **Vite**, **Tailwind CSS**, and **Swiper.js**. This project features a sleek review carousel, a fully responsive navigation bar, sidebar with dropdowns, and UI enhancements for customer interaction.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🚀 Fast build with **Vite**
+- 🎨 Utility-first styling using **Tailwind CSS**
+- 📱 Fully responsive **Navbar with mobile sidebar**
+- 🔁 **Swiper.js** carousel for rotating customer reviews
+- ✅ Verified badge with hover effect
+- 📞 Custom FontAwesome & Lucide icons
+- ⚡ Clean component structure and hover animations
 
-## Expanding the ESLint configuration
+## 📸 Preview
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![screenshot](./public/preview.png)  
+*(Include an actual screenshot if possible)*
+
+## 🔧 Tech Stack
+
+- **React**
+- **Vite**
+- **Tailwind CSS**
+- **Swiper.js**
+- **React Router**
+- **Lucide-react**
+- **FontAwesome**
+
+## 📂 Project Structure
+
+```bash
+src/
+├── assets/               # Images and icons
+├── components/
+│   ├── Navbar.jsx        # Responsive navigation bar
+│   └── ReviewCarousel.jsx# Swiper carousel with reviews
+├── App.jsx               # Main App component
+├── main.jsx              # React root rendering
+├── styles.css            # Tailwind base config
